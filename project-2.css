@@ -35,16 +35,22 @@ button {
     min-width: 100px;
 }
 
+a {
+    text-decoration: none;
+    font-size: 1.25em;
+}
+
 .save {
     background-color: #389e8c;
-    color: oldlace;
+    color: rgb(252, 234, 204);
     transition-property: all;
     transition-duration: 50ms;
     border-radius: 4px;
 }
 
 .save:hover {
-    background-color: #389e8c;
+    background-color: #55e3c9;
+    color: rgb(255, 255, 255);
     border-radius: 6px;
     border: solid 3px rgb(36, 27, 27);
 }
@@ -54,9 +60,9 @@ button {
 }
 
 .delete {
-    border: solid 3px #5f9341;
-    color: #5f9341;
-    background-color: oldlace;
+    border: solid 3px #389e8c;
+    color: #389e8c;
+    background-color: rgb(252, 234, 204);
     transition-property: all;
     transition-duration: 50ms;
     border-radius: 4px;
@@ -64,14 +70,15 @@ button {
 
 .delete:hover {
     border-color: rgb(49, 47, 42);
-    color: oldlace;
-    background-color: #5f9341;
+    color: rgb(255, 255, 255);
+    background-color: #389e8c;
     border-radius: 6px;
 }
 
 .delete:active {
     cursor: progress;
 }
+
 ul {
     list-style-type: none;
     line-height: 120%;
@@ -82,9 +89,9 @@ ul {
 }
 
 a:link {
-    color: #5f9341;
+    color: #389e8c;
 }
 
 a:visited {
-    color: #5f9341;
+    color: #389e8c;
 }
