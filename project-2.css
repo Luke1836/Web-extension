@@ -1,5 +1,4 @@
-* 
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,6 +9,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 16px;
     min-width: 400px;
+    background-color: rgb(209, 209, 209);
 }
 
 input {
@@ -38,6 +38,10 @@ button {
 a {
     text-decoration: none;
     font-size: 1.25em;
+}
+
+.buttons {
+    margin-top: 0.5rem;
 }
 
 .save {

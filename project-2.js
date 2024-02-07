@@ -36,7 +36,7 @@ saveTab.addEventListener("click", function() {
     });
 })
 
-deleteButton.addEventListener("dblclick", function() {
+deleteButton.addEventListener("click", function() {
     localStorage.clear();
     arr = [];
     renderElements(arr);

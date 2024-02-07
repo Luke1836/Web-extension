@@ -1,10 +1,10 @@
 {
     "manifest_version": 3,
-    "version": "1.1",
+    "version": "1.2",
     "name": "Tracker",
     "action": {
         "default_popup": "project-2.html",
-        "default_icon": "logo.jpg" 
+        "default_icon": "/logo.jpg" 
     },
     "permissions": [
         "tabs"
