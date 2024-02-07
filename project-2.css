@@ -46,14 +46,14 @@ a {
 
 .save {
     background-color: #389e8c;
-    color: rgb(252, 234, 204);
+    color: rgb(239, 230, 215);
     transition-property: all;
     transition-duration: 50ms;
     border-radius: 4px;
 }
 
 .save:hover {
-    background-color: #55e3c9;
+    background-color: #257d6d;
     color: rgb(255, 255, 255);
     border-radius: 6px;
     border: solid 3px rgb(36, 27, 27);
@@ -66,7 +66,7 @@ a {
 .delete {
     border: solid 3px #389e8c;
     color: #389e8c;
-    background-color: rgb(252, 234, 204);
+    background-color: rgb(239, 230, 215);
     transition-property: all;
     transition-duration: 50ms;
     border-radius: 4px;
