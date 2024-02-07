@@ -15,15 +15,14 @@ body {
 input {
     padding-left: 10px;
     width: 90vw;
-    border: solid 2px #5f9341;
+    border: solid 2px #297050;
     margin-bottom: 2vh;
     height: 40px;
     font-size: 20px;
     transition-property: all;
     transition-duration: 1ms;
     border-radius: 4px;
-    background-color: rgba(153, 184, 226, 0.779);
-    border-color: rgb(2, 2, 66);
+    background-color: rgba(103, 242, 228, 0.619);
     box-shadow: 6px 6px  10px -8px rgba(26, 26, 27, 0.5);
 }
 
@@ -37,7 +36,7 @@ button {
 }
 
 .save {
-    background-color: #5f9341;
+    background-color: #389e8c;
     color: oldlace;
     transition-property: all;
     transition-duration: 50ms;
@@ -45,7 +44,7 @@ button {
 }
 
 .save:hover {
-    background-color: #6da34be2;
+    background-color: #389e8c;
     border-radius: 6px;
     border: solid 3px rgb(36, 27, 27);
 }
