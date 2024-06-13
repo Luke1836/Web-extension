@@ -3,8 +3,8 @@
     "version": "1.2",
     "name": "Tracker",
     "action": {
-        "default_popup": "project-2.html",
-        "default_icon": "./logo.jpg" 
+        "default_popup": "index.html",
+        "default_icon": "./Images/logo.jpg" 
     },
     "permissions": [
         "tabs"
