@@ -35,6 +35,7 @@ button {
     padding: 8px;
     width: 10vw;
     min-width: 100px;
+    border-radius: 10px;
 }
 
 a {
