@@ -1,7 +1,7 @@
 {
-    "manifest_version": 4,
+    "manifest_version": 3,
     "version": "1.3.1",
-    "name": "Tracker",
+    "name": "SnapLink",
     "action": {
         "default_popup": "index.html",
         "default_icon": "logo.png" 
