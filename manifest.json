@@ -4,7 +4,7 @@
     "name": "Tracker",
     "action": {
         "default_popup": "index.html",
-        "default_icon": "./logo.jpg" 
+        "default_icon": "logo.png" 
     },
     "permissions": [
         "tabs"
