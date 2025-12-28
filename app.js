@@ -4,6 +4,8 @@ const save = document.getElementById("save");
 const deleteButton = document.getElementById("delete");
 const list1 = document.getElementById("list");
 const saveTab = document.getElementById("tab");
+const errorMsg = document.getElementById("error-msg");
+const warning = document.getElementById("warn-msg");
 var arr = [];
 const parsedData = JSON.parse(localStorage.getItem("extension11"))
 
@@ -13,17 +15,80 @@ if(parsedData)
     renderElements(arr);
 }
 
+// Error and warning Handling
+function showError(message) 
+{
+    errorMsg.textContent = message;
+    errorMsg.classList.remove("hidden");
+}
+
+function showWarning(message) 
+{
+    warning.textContent = message;
+    warning.classList.remove("hidden");
+}
+
+function hideError() 
+{
+    errorMsg.classList.add("hidden");
+}
+
+// End of Error Handling
+
+
+/* --------------- Normalising URL -------------------- */
+function normalizeURL(url) 
+{
+    if (!/^https?:\/\//i.test(url)) {
+        return "https://" + url;
+    }
+    return url;
+}
+
+function isValidURL(url) 
+{
+    try {
+        const parsed = new URL(url);
+
+        // Must be http or https
+        if (!["http:", "https:"].includes(parsed.protocol)) {
+            return false;
+        }
+
+        // Must contain a dot (.) in hostname
+        if (!parsed.hostname.includes(".")) {
+            return false;
+        }
+
+        // No spaces allowed
+        if (url.includes(" ")) {
+            return false;
+        }
+
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 
 function renderElements(data)
 {
     let listItems ="";
     for(let i = 0 ; i < data.length ; i++)
-        listItems += `
-            <li>
-                <a href= "${data[i]}" target = '_blank'>
-                ${data[i]}  
-                </a>
-            </li>`;
+    {
+        const url = normalizeURL(data[i]);
+        if(isValidURL(url))
+            listItems += `
+                <li>
+                    <a href="${url}" target="_blank" rel="noopener noreferrer">
+                    ${url}
+                    </a>
+                </li>`;
+        else
+            showError("The URL is not valid!");
+    }
+        
     list1.innerHTML = listItems;
 }
 
@@ -43,16 +108,34 @@ deleteButton.addEventListener("click", function() {
 });
 
 
-save.addEventListener("click", function() {
+save.addEventListener("click", function() 
+{
+    let url = inputElement.value.trim();
+    hideError();
+
+    if(!url)
+    {
+        showError("URL cannot be empty!");
+        return;
+    }
+
+    url = normalizeURL(url);
+
+    if(!isValidURL(url)) 
+    {
+        showError("Please enter a valid URL.");
+        return;
+    }
+
+    if (arr.includes(url)) {
+        showWarning("This URL is already saved!");
+        return;
+    }
+
     arr.push(inputElement.value)
     localStorage.setItem("extension11", JSON.stringify(arr));
     renderElements(arr);
     inputElement.value = '';
-    /* 
-        const li = document.createElement("li");
-        li.textContent = arr[c];
-        list1.append(li);
-    */
 })
 
 

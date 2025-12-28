@@ -49,6 +49,26 @@ a {
 
 /* ----------- End of General Styles ------------ */
 
+
+/* --------------- Error Message Handler ------------------ */
+.error {
+    color: #e63946;
+    font-size: 0.85rem;
+    margin-top: 6px;
+}
+
+.warn {
+    color: #e69839;
+    font-size: 0.85rem;
+    margin-top: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ------------------End of handler ------------------------ */
+
 .buttons {
     margin-top: 0.5rem;
 }
