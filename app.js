@@ -11,7 +11,8 @@ const parsedData = JSON.parse(localStorage.getItem("extension11"))
 
 if(parsedData)
 {   
-    arr = parsedData;
+    arr = parsedData.map(url => normalizeURL(url));
+    localStorage.setItem("extension11", JSON.stringify(arr));
     renderElements(arr);
 }
 
@@ -33,6 +34,11 @@ function hideError()
     errorMsg.classList.add("hidden");
 }
 
+function hideWarning() 
+{
+    warning.classList.add("hidden");
+}
+
 // End of Error Handling
 
 
@@ -43,6 +49,10 @@ function normalizeURL(url)
         return "https://" + url;
     }
     return url;
+}
+
+function isDuplicate(url) {
+    return arr.some(storedUrl => storedUrl === url);
 }
 
 function isValidURL(url) 
@@ -85,23 +95,32 @@ function renderElements(data)
                     ${url}
                     </a>
                 </li>`;
-        else
-            showError("The URL is not valid!");
     }
         
     list1.innerHTML = listItems;
 }
 
-saveTab.addEventListener("click", function() {
-    //Grabbing the URL of the current tab
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        arr.push(tabs[0].url);
-        localStorage.setItem("extension11", JSON.stringify( arr ))
+saveTab.addEventListener("click", function () {
+    hideError();
+    hideWarning();
+
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        const url = normalizeURL(tabs[0].url);
+
+        if (isDuplicate(url)) {
+            showWarning("This tab URL is already saved");
+            return;
+        }
+
+        arr.push(url);
+        localStorage.setItem("extension11", JSON.stringify(arr));
         renderElements(arr);
     });
-})
+});
 
 deleteButton.addEventListener("click", function() {
+    hideError();
+    hideWarning();
     localStorage.clear();
     arr = [];
     renderElements(arr);
@@ -109,9 +128,10 @@ deleteButton.addEventListener("click", function() {
 
 
 save.addEventListener("click", function() 
-{
-    let url = inputElement.value.trim();
+{   
     hideError();
+    hideWarning();
+    let url = inputElement.value.trim();
 
     if(!url)
     {
@@ -127,12 +147,13 @@ save.addEventListener("click", function()
         return;
     }
 
-    if (arr.includes(url)) {
-        showWarning("This URL is already saved!");
+    if (isDuplicate(url)) 
+    {
+        showWarning("This URL is already saved");
         return;
     }
 
-    arr.push(inputElement.value)
+    arr.push(url)
     localStorage.setItem("extension11", JSON.stringify(arr));
     renderElements(arr);
     inputElement.value = '';
