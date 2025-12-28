@@ -8,7 +8,7 @@ var arr = [];
 const parsedData = JSON.parse(localStorage.getItem("extension11"))
 
 if(parsedData)
-{
+{   
     arr = parsedData;
     renderElements(arr);
 }
