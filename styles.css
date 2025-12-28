@@ -7,24 +7,28 @@
 
 /* ------------ General Styles ------------ */
 body {
-    padding: 10px;
+    padding: 16px;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 16px;
     min-width: 400px;
-    background-color: rgb(209, 209, 209);
+    width: 4%;
+    height: auto;
+    background-color: #FFFDE1;
+    border: solid 4px #d9d9c1;
+    border-end-start-radius: 8px;
 }
 
 input {
     padding-left: 10px;
     width: 90vw;
-    border: solid 2px #297050;
+    border: solid 2px #3F9AAE;
     margin-bottom: 2vh;
     height: 40px;
     font-size: 20px;
     transition-property: all;
     transition-duration: 1ms;
     border-radius: 4px;
-    background-color: rgba(103, 242, 228, 0.619);
+    background-color: #79C9C5;
     box-shadow: 6px 6px  10px -8px rgba(26, 26, 27, 0.5);
 }
 
@@ -50,7 +54,7 @@ a {
 }
 
 .save {
-    background-color: #389e8c;
+    background-color: #F96E5B;
     color: rgb(239, 230, 215);
     transition-property: all;
     transition-duration: 50ms;
@@ -69,9 +73,9 @@ a {
 }
 
 .delete {
-    border: solid 3px #389e8c;
-    color: #389e8c;
-    background-color: rgb(239, 230, 215);
+    border: solid 3px #F96E5B;
+    color: #F96E5B;
+    background-color: #FFFDE1;
     transition-property: all;
     transition-duration: 50ms;
     border-radius: 4px;
@@ -80,7 +84,7 @@ a {
 .delete:hover {
     border-color: rgb(49, 47, 42);
     color: rgb(255, 255, 255);
-    background-color: #389e8c;
+    background-color: #F96E5B;
     border-radius: 6px;
 }
 
@@ -93,14 +97,14 @@ ul {
     line-height: 120%;
     margin-top: 10px;
     margin-left: 2vw;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 }
 
 a:link {
-    color: #389e8c;
+    color: #F96E5B;
 }
 
 a:visited {
-    color: #389e8c;
+    color: #F96E5B;
 }
